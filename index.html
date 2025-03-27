@@ -1,1 +1,128 @@
-Hello world
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marco & Erika - Il Nostro Matrimonio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #fdfaf6;
+      color: #333;
+    }
+    header {
+      background: url('https://images.unsplash.com/photo-1521369909022-2afed882ba83?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+    }
+    header p {
+      font-size: 1.5em;
+      margin-top: 10px;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+    .date-location {
+      font-size: 1.3em;
+      margin: 30px 0;
+    }
+    .countdown {
+      font-size: 2em;
+      margin-top: 20px;
+      color: #b48b6c;
+    }
+    .rsvp-form input, .rsvp-form select, .rsvp-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+    .rsvp-form button {
+      background-color: #b48b6c;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    footer {
+      background-color: #e8ded1;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Marco & Erika</h1>
+    <p>Ci sposiamo!</p>
+  </header>
+
+  <section>
+    <p class="date-location">Sabato 14 Giugno 2025<br>Villa Paradiso, Toscana</p>
+    <p>Con grande gioia vi invitiamo a celebrare con noi questo giorno speciale.</p>
+    <div class="countdown" id="countdown">Mancano X giorni!</div>
+  </section>
+
+  <section>
+    <h2>Programma della Giornata</h2>
+    <p><strong>15:30</strong> - Cerimonia nel giardino della villa</p>
+    <p><strong>17:00</strong> - Aperitivo e foto</p>
+    <p><strong>19:00</strong> - Cena e festa</p>
+    <p><strong>23:00</strong> - Taglio della torta e DJ set</p>
+  </section>
+
+  <section>
+    <h2>Come Arrivare</h2>
+    <p>Villa Paradiso si trova a circa 30 minuti da Firenze.</p>
+    <p>Indirizzo: Via dei Sogni 12, 50050 Toscana (FI)</p>
+    <p>Parcheggio disponibile in loco.</p>
+    <p>Per chi arriva in treno: stazione consigliata Firenze SMN + auto o taxi.</p>
+  </section>
+
+  <section>
+    <h2>RSVP</h2>
+    <form class="rsvp-form">
+      <input type="text" name="nome" placeholder="Il tuo nome" required>
+      <select name="presenza">
+        <option value="">Parteciperai?</option>
+        <option value="si">Sì, con gioia!</option>
+        <option value="no">Purtroppo no</option>
+      </select>
+      <textarea name="messaggio" placeholder="Un messaggio per noi (opzionale)"></textarea>
+      <button type="submit">Invia</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Marco & Erika. Tutti i diritti riservati.</p>
+  </footer>
+
+  <script>
+    const weddingDate = new Date('2025-06-14');
+    const countdownEl = document.getElementById('countdown');
+    const updateCountdown = () => {
+      const now = new Date();
+      const diff = weddingDate - now;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      countdownEl.textContent = `Mancano ${days} giorni!`;
+    };
+    updateCountdown();
+    setInterval(updateCountdown, 1000 * 60 * 60);
+  </script>
+</body>
+</html>
