@@ -89,3 +89,18 @@ footer {
     text-decoration: none;
     border-radius: 8px;
 }
+
+.f1-scroll {
+    position: fixed;
+    bottom: 30px;
+    right: 0;
+    width: 80px;
+    z-index: 999;
+    animation: drive 10s linear infinite;
+  }
+  
+  @keyframes drive {
+    0% { right: -100px; }
+    100% { right: 110%; }
+  }
+  
