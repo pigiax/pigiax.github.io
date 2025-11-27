@@ -1,4 +1,4 @@
-import { Component, signal, WritableSignal } from '@angular/core';
+import { Component, OnInit, signal, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { RiddleConfig } from '../data/config';
@@ -9,11 +9,18 @@ import { RiddleConfig } from '../data/config';
   templateUrl: './login.html',
   styleUrl: './login.scss',
 })
-export class Login {
+export class Login implements OnInit {
   public readonly password: WritableSignal<string> = signal('');
   public readonly errorMessage: WritableSignal<string> = signal('');
 
   constructor(private router: Router) { }
+
+  ngOnInit(): void {
+    const lastRiddle = localStorage.getItem('riddleId');
+    if(lastRiddle && Number(lastRiddle) > 0) {
+      this.router.navigate(['/riddle']);
+    }
+  }
 
   login() {
     const pwd = this.password();
