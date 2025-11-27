@@ -1,0 +1,125 @@
+/* --- Layout Base --- */
+.home-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    135deg,
+    #fdfcfb 0%,
+    #e2d1c3 100%
+  ); /* caldo e natalizio */
+  padding: 20px;
+}
+
+/* --- Card Centrale --- */
+.card {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+}
+
+/* --- Titoli --- */
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #b30000; /* rosso Natale */
+  text-shadow: 0 2px 4px rgba(179, 0, 0, 0.2);
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+/* --- Input e Bottone --- */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.password-input {
+  padding: 12px;
+  border-radius: 12px;
+  border: 2px solid #c62828;
+  outline: none;
+  font-size: 1rem;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.password-input:focus {
+  border-color: #ff3d3d;
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
+}
+
+.enter-btn {
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: #d32f2f;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.enter-btn:hover {
+  background: #b71c1c;
+}
+
+.enter-btn:active {
+  transform: scale(0.97);
+}
+
+/* --- Messaggio errore --- */
+.error {
+  margin-top: 16px;
+  color: #b00020;
+  font-weight: 600;
+}
+
+/* --- Footer Natalizio --- */
+.footer {
+  margin-top: 28px;
+  font-size: 0.9rem;
+  color: #444;
+  opacity: 0.9;
+}
+
+/* Leggera animazione di luci attorno alla card */
+.card::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border-radius: 24px;
+  padding: 4px;
+  pointer-events: none;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(255, 0, 0, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(0, 150, 0, 0.3) 0%, transparent 50%);
+  animation: glow 4s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,13 @@
+<h1 class="title">🎄 Benvenuti! 🎁</h1>
+
+<p class="subtitle"> Per poter scartare i vostri regali, dovete intanto trovare la password<br /> e inseritela per iniziare il percorso! </p>
+<p class="subtitle"> Trovarla sarà semplice, basterà mettere ognuno la propria parte </p>
+
+<div class="input-group">
+    <input type="password" [(ngModel)]="password" placeholder="Inserisci la password" class="password-input" />
+    <button (click)="login()" class="enter-btn">Entra</button>
+</div>
+
+@if(!!errorMessage()) {
+  <p class="error" >{{ errorMessage() }}</p>
+}
