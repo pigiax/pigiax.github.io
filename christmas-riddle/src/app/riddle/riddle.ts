@@ -1,6 +1,7 @@
 import { Component, OnInit, signal, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RiddleConfig } from '../data/config';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-riddle',
@@ -14,12 +15,19 @@ export class Riddle implements OnInit {
   public readonly answer: WritableSignal<string> = signal('');
   public readonly passcode: WritableSignal<string> = signal('');
 
+  constructor(private router: Router) { }
+
   public currentRiddle(): string {
     const riddle = RiddleConfig.riddles[this.lastRiddle()];
     return riddle ? riddle.quesion : '';
   }
 
   ngOnInit(): void {
+    const pwdSolved = localStorage.getItem('pwdSolved');
+    if(pwdSolved != "1") {
+       this.router.navigate(['/']);
+      return;
+    }
     const lastRiddle = localStorage.getItem('riddleId');
     this.lastRiddle.set(Number(lastRiddle));
     this.fillPasscode();
@@ -59,5 +67,9 @@ export class Riddle implements OnInit {
         passcode += riddle.code;
     }
     this.passcode.set(passcode);
+  }
+
+  public isCompleted(): boolean {
+    return this.lastRiddle() >= Object.keys(RiddleConfig.riddles).length;
   }
 }

@@ -16,15 +16,16 @@ export class Login implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    const lastRiddle = localStorage.getItem('riddleId');
-    if(lastRiddle && Number(lastRiddle) > 0) {
+    const pwdSolved = localStorage.getItem('pwdSolved');
+    if (pwdSolved == "1") {
       this.router.navigate(['/riddle']);
     }
   }
 
   login() {
     const pwd = this.password();
-    if (pwd === RiddleConfig.password) {
+    if (pwd.toLowerCase() === RiddleConfig.password.toLowerCase()) {
+      localStorage.setItem('pwdSolved', '1');
       this.router.navigate(['/riddle']);
     } else {
       this.errorMessage.set('Password errata, riprova!');

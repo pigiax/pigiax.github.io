@@ -1,6 +1,6 @@
 <h1>{{currentRiddle()}}</h1>
 
-@if(this.lastRiddle() < 4) { <p>
+@if(!this.isCompleted()) { <p>
     <input [(ngModel)]="answer" placeholder="Risposta" />
     </p>
     <p>
