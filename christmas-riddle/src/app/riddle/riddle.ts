@@ -55,8 +55,9 @@ export class Riddle implements OnInit {
   restartRiddle(): void {
     this.lastRiddle.set(0);
     localStorage.setItem('riddleId', '0');
+    localStorage.setItem('pwdSolved', '0');
     this.answer.set('');
-    this.fillPasscode();
+    this.router.navigate(['/']);
   }
 
   private fillPasscode(): void {

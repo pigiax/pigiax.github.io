@@ -10,16 +10,24 @@ import { RiddleConfig } from '../data/config';
   styleUrl: './login.scss',
 })
 export class Login implements OnInit {
+  public readonly isChristmas: WritableSignal<boolean> = signal(false);
   public readonly password: WritableSignal<string> = signal('');
   public readonly errorMessage: WritableSignal<string> = signal('');
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    const today = new Date();
+    this.isChristmas.set(today.getMonth() == 11 && today.getDate() >= 25);
     const pwdSolved = localStorage.getItem('pwdSolved');
     if (pwdSolved == "1") {
       this.router.navigate(['/riddle']);
     }
+  }
+
+  refresh() {
+    const today = new Date();
+    this.isChristmas.set(today.getMonth() == 11 && today.getDate() >= 25);
   }
 
   login() {

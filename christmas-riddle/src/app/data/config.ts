@@ -1,5 +1,5 @@
 export class RiddleConfig {
-    public static password: string = 'ghcv';
+    public static password: string = 'ghcx';
 
     public static riddles: { [id: number]: { quesion: string, answer: string, help: string; code: string } } = {
         0: { quesion: "Sono alto quando sono giovane e basso quando sono vecchio. Cosa sono?", answer: "candela", help: "Si usa per illuminare.", code: "5" },
